@@ -1,0 +1,1917 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Κανονισμός Κατάταξης &amp; Συντελεστής «Δ» - Boca Sport</title>
+<style>
+  :root {
+    --primary: #0f172a;
+    --secondary: #1e293b;
+    --accent: #2563eb;
+    --accent-hover: #1d4ed8;
+    --success: #16a34a;
+    --warning: #d97706;
+    --danger: #dc2626;
+    --bg: #f1f5f9;
+    --card: #ffffff;
+    --text: #1e293b;
+    --muted: #64748b;
+    --border: #cbd5e1;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    padding-bottom: 50px;
+  }
+
+  header {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #fff;
+    padding: 20px 24px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+  }
+
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .header-title h1 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .header-title p {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    margin-top: 2px;
+  }
+
+  .backup-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  button {
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 14px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .btn-primary {
+    background-color: var(--accent);
+    color: #fff;
+  }
+  .btn-primary:hover { background-color: var(--accent-hover); }
+
+  .btn-secondary {
+    background-color: rgba(255,255,255,0.12);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+  .btn-secondary:hover { background-color: rgba(255,255,255,0.2); }
+
+  .btn-outline {
+    background-color: #fff;
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+  .btn-outline:hover { background-color: #f8fafc; }
+
+  .btn-danger {
+    background-color: var(--danger);
+    color: #fff;
+  }
+  .btn-danger:hover { background-color: #b91c1c; }
+
+  .container {
+    max-width: 1200px;
+    margin: 24px auto;
+    padding: 0 16px;
+  }
+
+  .tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 10px;
+    overflow-x: auto;
+  }
+
+  .tab-btn {
+    background: transparent;
+    color: var(--muted);
+    font-size: 0.95rem;
+    padding: 10px 18px;
+    border-radius: 8px;
+  }
+
+  .tab-btn:hover {
+    background: #e2e8f0;
+    color: var(--text);
+  }
+
+  .tab-btn.active {
+    background: var(--accent);
+    color: #fff;
+  }
+
+  .tab-content {
+    display: none;
+  }
+
+  .tab-content.active {
+    display: block;
+  }
+
+  .card {
+    background: var(--card);
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #e2e8f0;
+  }
+
+  .card-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    gap: 12px;
+  }
+
+  .card-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--primary);
+  }
+
+  .table-responsive {
+    overflow-x: auto;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+
+  th, td {
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  th {
+    background-color: #f8fafc;
+    font-weight: 700;
+    color: var(--secondary);
+    white-space: nowrap;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  tr:hover td {
+    background-color: #f8fafc;
+  }
+
+  .num {
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .team-cell {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+  }
+
+  .team-logo {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #e2e8f0;
+    border: 1px solid #cbd5e1;
+    flex-shrink: 0;
+  }
+
+  .team-logo-placeholder {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #e2e8f0;
+    color: #64748b;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .pos-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    background: #e2e8f0;
+    color: var(--primary);
+  }
+
+  .pos-1 { background: #fef08a; color: #854d0e; border: 1px solid #fde047; }
+  .pos-2 { background: #e2e8f0; color: #334155; border: 1px solid #cbd5e1; }
+  .pos-3 { background: #fed7aa; color: #9a3412; border: 1px solid #fdba74; }
+
+  .delta-val {
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  .pts-val {
+    font-weight: 700;
+    color: var(--primary);
+  }
+
+  .badge-note {
+    display: inline-block;
+    font-size: 0.75rem;
+    padding: 3px 8px;
+    border-radius: 999px;
+    font-weight: 600;
+    margin: 2px 0;
+  }
+
+  .badge-up { background: #dcfce7; color: #166534; }
+  .badge-axiom { background: #fef3c7; color: #92400e; }
+  .badge-limit { background: #fee2e2; color: #991b1b; }
+
+  /* Form controls */
+  input[type="text"], input[type="number"], select {
+    padding: 8px 10px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 0.9rem;
+    background: #fff;
+    color: var(--text);
+  }
+
+  input[type="text"]:focus, input[type="number"]:focus, select:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+  }
+
+  .match-form {
+    display: grid;
+    grid-template-columns: 90px 1fr 70px 70px 1fr auto;
+    gap: 10px;
+    align-items: center;
+    background: #f8fafc;
+    padding: 14px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    margin-bottom: 18px;
+  }
+
+  @media (max-width: 850px) {
+    .match-form {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .rules-box h3 {
+    margin-top: 16px;
+    margin-bottom: 6px;
+    color: var(--primary);
+    font-size: 1.05rem;
+  }
+  .rules-box h3:first-child { margin-top: 0; }
+  .rules-box p, .rules-box li {
+    font-size: 0.92rem;
+    color: #334155;
+    margin-bottom: 6px;
+  }
+  .rules-box ul {
+    padding-left: 20px;
+    margin-bottom: 12px;
+  }
+
+  .formula-highlight {
+    background: #eff6ff;
+    border-left: 4px solid var(--accent);
+    padding: 10px 14px;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--primary);
+    margin: 10px 0;
+    border-radius: 0 6px 6px 0;
+  }
+
+  .toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--primary);
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.2);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.25s ease;
+    pointer-events: none;
+    z-index: 999;
+  }
+  .toast.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+  }
+
+  @media print {
+    header, .tabs, .no-print, .backup-controls { display: none !important; }
+    body { background: #fff; padding: 0; }
+    .container { margin: 0; max-width: 100%; }
+    .card { box-shadow: none; border: none; padding: 0; }
+    .tab-content { display: none !important; }
+    #tab-standings { display: block !important; }
+  }
+
+  /* ===== Νέες λειτουργίες ===== */
+  .tournament-name {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #fbbf24;
+    margin-bottom: 4px;
+  }
+  .reader-box textarea {
+    width: 100%;
+    min-height: 120px;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-family: Consolas, Menlo, monospace;
+    font-size: 0.8rem;
+    resize: vertical;
+    color: var(--text);
+    background: #fff;
+  }
+  .reader-box textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+  }
+  .reader-stats { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+  .stat-chip {
+    background: #eff6ff; color: #1e3a8a; border-radius: 999px;
+    padding: 4px 10px; font-size: 0.8rem; font-weight: 600;
+  }
+  .stat-chip.warn { background: #fef3c7; color: #92400e; }
+  .reader-opts { margin: 12px 0; padding: 12px; background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; }
+  .reader-opts label { display: block; font-size: 0.88rem; margin: 5px 0; cursor: pointer; }
+  .medal { font-size: 1.1rem; margin-right: 4px; }
+  .podium-cell { display: flex; align-items: center; gap: 8px; font-weight: 600; }
+  .print-only { display: none; }
+  @media print {
+    .print-only { display: block !important; font-size: 1.3rem; font-weight: 700; margin-bottom: 10px; color: #000; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="header-title">
+      <div id="headerTournament" class="tournament-name" style="display:none;"></div>
+      <h1>Κατάταξη &amp; Συντελεστής «Δ» (Διασταύρωση)</h1>
+      <p>Επίσημο Σύστημα Βαθμολογίας Boca Sport</p>
+    </div>
+    <div class="backup-controls">
+      <button class="btn-secondary" onclick="exportAll()" title="Αποθηκεύει ΤΑ ΠΑΝΤΑ σε ένα αρχείο boca.json">☁️ Αποθήκευση όλων (boca.json)</button>
+      <button class="btn-secondary" onclick="document.getElementById('importAllFile').click()" title="Φορτώνει το boca.json και συγχωνεύει τα πάντα">☁️ Φόρτωση όλων (boca.json)</button>
+      <input type="file" id="importAllFile" accept=".json" style="display:none" onchange="importAll(event)">
+      <button class="btn-secondary" onclick="exportData()">💾 Εξαγωγή Backup (.json)</button>
+      <button class="btn-secondary" onclick="document.getElementById('importFile').click()">📂 Εισαγωγή Backup</button>
+      <input type="file" id="importFile" accept=".json" style="display:none" onchange="importData(event)">
+      <button class="btn-secondary" onclick="window.print()">🖨️ Εκτύπωση / PDF</button>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="tabs no-print">
+    <button class="tab-btn active" onclick="switchTab('standings', this)">🏆 1. Βαθμολογία &amp; Κατάταξη</button>
+    <button class="tab-btn" onclick="switchTab('matches', this)">⚽ 2. Αγώνες &amp; Αποτελέσματα</button>
+    <button class="tab-btn" onclick="switchTab('teams', this)">🛡️ 3. Ομάδες &amp; Σήματα</button>
+    <button class="tab-btn" onclick="switchTab('rules', this)">📜 4. Κανονισμός «Δ»</button>
+    <button class="tab-btn" onclick="switchTab('library', this)">🗂️ 5. Τουρνουά &amp; Hall of Fame</button>
+  </div>
+
+  <!-- TAB 1: ΒΑΘΜΟΛΟΓΙΑ -->
+  <div id="tab-standings" class="tab-content active">
+    <div id="printTitle" class="print-only"></div>
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Βαθμολογία &amp; Τελική Κατάταξη</div>
+          <div style="font-size:0.82rem; color:var(--muted);">Υπολογίζεται αυτόματα με βάση τον Συντελεστή Δ = Β - (0,6 × Χ), το όριο ≤ 2 αγώνων και το Αξίωμα μεταξύ τους αγώνων.</div>
+        </div>
+        <div class="filter-bar no-print">
+          <label style="font-size:0.85rem; font-weight:600;">Προβολή έως Αγωνιστική:</label>
+          <select id="roundFilterStandings" onchange="renderStandings()">
+            <option value="ALL">Όλες οι αγωνιστικές</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="no-print" style="margin-bottom:14px;">
+        <label style="font-size:0.8rem; font-weight:700; display:block; margin-bottom:3px;">Ονομασία Τουρνουά (Τίτλος)</label>
+        <input type="text" id="tournamentNameInput" oninput="setTournamentName(this.value)"
+               placeholder="π.χ. BOCA CUP 2026-2027 ΕΠΣΑΝΑ U11-Β' ΟΜΙΛΟΣ" style="width:100%; max-width:560px;">
+        <div style="font-size:0.78rem; color:var(--muted); margin-top:3px;">Εμφανίζεται στον τίτλο της σελίδας. Το έτος διοργάνωσης για το Hall of Fame λαμβάνεται από αυτόν τον τίτλο.</div>
+      </div>
+
+      <div class="table-responsive">
+        <table id="standingsTable">
+          <thead>
+            <tr>
+              <th class="num" style="width:55px;">Θέση</th>
+              <th>Ομάδα</th>
+              <th class="num" title="Αγώνες">Αγ.</th>
+              <th class="num" title="Νίκες">Ν</th>
+              <th class="num" title="Ισοπαλίες">Ι</th>
+              <th class="num" title="Ήττες">Η</th>
+              <th class="num" title="Γκολ Υπέρ">ΓΥ</th>
+              <th class="num" title="Γκολ Κατά">ΓΚ</th>
+              <th class="num" title="Διαφορά Τερμάτων">ΔΤ</th>
+              <th class="num" title="Κανονικοί Βαθμοί">Βαθμοί (Β)</th>
+              <th class="num" title="Συντελεστής Δ = Β - 0.6 * Χ">Συντ. Δ</th>
+              <th>Παρατηρήσεις Κανονισμού</th>
+            </tr>
+          </thead>
+          <tbody id="standingsBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card no-print" id="explanationsCard" style="display:none;">
+      <div class="card-title" style="margin-bottom:10px; font-size:1rem;">🔍 Ανάλυση Εφαρμογής Κανόνων (Διασταυρώσεις &amp; Αξιώματα)</div>
+      <div id="explanationsList" style="font-size:0.88rem; color:#334155;"></div>
+    </div>
+  </div>
+
+  <!-- TAB 2: ΑΓΩΝΕΣ -->
+  <div id="tab-matches" class="tab-content">
+    <div class="card reader-box no-print">
+      <div class="card-header" style="margin-bottom:10px;">
+        <div>
+          <div class="card-title">🤖 Έξυπνος Αναγνώστης Boca Sport</div>
+          <div style="font-size:0.82rem; color:var(--muted);">Ανοίξτε το πρόγραμμα στη σελίδα της Boca Sport, πατήστε <strong>Ctrl+A</strong> και <strong>Ctrl+C</strong>, και επικολλήστε εδώ με <strong>Ctrl+V</strong>. Παραλείπονται αυτόματα οι αγώνες χωρίς σκορ και τα ΡΕΠΟ.</div>
+        </div>
+      </div>
+      <textarea id="readerText" placeholder="Επικολλήστε εδώ το κείμενο της σελίδας (Ctrl+V)..." onpaste="setTimeout(analyzeReader, 60)"></textarea>
+      <div style="margin-top:10px; display:flex; gap:8px; flex-wrap:wrap;">
+        <button class="btn-primary" onclick="analyzeReader()">🔍 Ανάλυση κειμένου</button>
+        <button class="btn-outline" onclick="clearReader()">✖ Καθαρισμός</button>
+      </div>
+      <div id="readerPreview" style="margin-top:14px;"></div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Καταχώριση Νέου Αγώνα</div>
+      </div>
+
+      <div class="match-form">
+        <div>
+          <label style="font-size:0.75rem; font-weight:700; display:block; margin-bottom:3px;">Αγωνιστική</label>
+          <input type="number" id="matchRound" min="1" max="50" value="1" style="width:100%;">
+        </div>
+        <div>
+          <label style="font-size:0.75rem; font-weight:700; display:block; margin-bottom:3px;">Γηπεδούχος (Α)</label>
+          <select id="matchHome" style="width:100%;"></select>
+        </div>
+        <div>
+          <label style="font-size:0.75rem; font-weight:700; display:block; margin-bottom:3px;">Γκολ Γηπ.</label>
+          <input type="number" id="matchHomeGoals" min="0" max="99" placeholder="-" style="width:100%; text-align:center;">
+        </div>
+        <div>
+          <label style="font-size:0.75rem; font-weight:700; display:block; margin-bottom:3px;">Γκολ Φιλ.</label>
+          <input type="number" id="matchAwayGoals" min="0" max="99" placeholder="-" style="width:100%; text-align:center;">
+        </div>
+        <div>
+          <label style="font-size:0.75rem; font-weight:700; display:block; margin-bottom:3px;">Φιλοξενούμενος (Β)</label>
+          <select id="matchAway" style="width:100%;"></select>
+        </div>
+        <div style="align-self:end;">
+          <button class="btn-primary" onclick="addMatch()" style="height:36px;">➕ Προσθήκη</button>
+        </div>
+      </div>
+
+      <div class="card-header" style="margin-top:24px;">
+        <div class="card-title">Λίστα Καταχωρισμένων Αγώνων (<span id="matchCount">0</span>)</div>
+        <div class="filter-bar">
+          <select id="filterMatchRound" onchange="renderMatches()">
+            <option value="ALL">Όλες οι αγωνιστικές</option>
+          </select>
+          <select id="filterMatchTeam" onchange="renderMatches()">
+            <option value="ALL">Όλες οι ομάδες</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th class="num" style="width:60px;">Α/Α</th>
+              <th class="num" style="width:100px;">Αγωνιστική</th>
+              <th>Γηπεδούχος</th>
+              <th class="num" style="width:130px;">Σκορ</th>
+              <th>Φιλοξενούμενος</th>
+              <th class="num" style="width:90px;">Σημείο</th>
+              <th class="num" style="width:100px;">Ενέργειες</th>
+            </tr>
+          </thead>
+          <tbody id="matchesBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 3: ΟΜΑΔΕΣ -->
+  <div id="tab-teams" class="tab-content">
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Διαχείριση Ομάδων, Σημάτων &amp; Ψευδωνύμων</div>
+          <div style="font-size:0.82rem; color:var(--muted);">Αλλάξτε ονόματα, ανεβάστε σήμα, προσθέστε ή διαγράψτε ομάδες. Στα «Ψευδώνυμα» γράψτε τα ονόματα που εμφανίζονται στο site της Boca Sport (π.χ. ΘΥΕΛΛΑ ΡΑΦΗΝΑΣ BLACK), χωρισμένα με «;». Οι αλλαγές αποθηκεύονται αυτόματα.</div>
+        </div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <button class="btn-primary" onclick="addTeamUI()">➕ Προσθήκη Ομάδας</button>
+          <button class="btn-outline" onclick="resetDefaultTeams()">🔄 Επαναφορά Αρχικών 16 Ομάδων</button>
+        </div>
+      </div>
+
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th class="num" style="width:60px;">Α/Α</th>
+              <th style="width:80px;">Σήμα</th>
+              <th>Όνομα Ομάδας</th>
+              <th>Ψευδώνυμα (ονόματα στο site)</th>
+              <th style="width:240px;">Ανέβασμα / Αφαίρεση Σήματος</th>
+              <th class="num" style="width:80px;">Διαγραφή</th>
+            </tr>
+          </thead>
+          <tbody id="teamsBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 5: ΤΟΥΡΝΟΥΑ & HALL OF FAME -->
+  <div id="tab-library" class="tab-content">
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">💾 Αποθηκευμένα Τουρνουά</div>
+          <div style="font-size:0.82rem; color:var(--muted);">Αποθηκεύστε το τρέχον τουρνουά (ομάδες, ψευδώνυμα, αγώνες, τίτλο) με δικό του όνομα και φορτώστε το όποτε θέλετε. Τα δεδομένα μένουν στη συσκευή και τον browser που χρησιμοποιείτε.</div>
+        </div>
+        <button class="btn-outline" onclick="newTournament()">🆕 Νέο Τουρνουά (κρατά τις ομάδες)</button>
+      </div>
+      <div class="filter-bar" style="margin-bottom:16px;">
+        <input type="text" id="saveAsName" placeholder="Όνομα αποθήκευσης (κενό = ο τίτλος του τουρνουά)" style="width:100%; max-width:380px;">
+        <button class="btn-primary" onclick="saveAsTournament()">💾 Αποθήκευση ως (Save As)</button>
+      </div>
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>Όνομα</th>
+              <th>Αποθηκεύτηκε</th>
+              <th class="num">Ομάδες</th>
+              <th class="num">Αγώνες</th>
+              <th class="num" style="width:200px;">Ενέργειες</th>
+            </tr>
+          </thead>
+          <tbody id="libBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">🏆 Hall of Fame</div>
+          <div style="font-size:0.82rem; color:var(--muted);">Καταχωρίζει τους 3 πρώτους της τρέχουσας βαθμολογίας (όλες οι αγωνιστικές) μαζί με την ονομασία του τουρνουά και το έτος από τον τίτλο.</div>
+        </div>
+        <button class="btn-primary" onclick="addToHallOfFame()">🏅 Προσθήκη τρέχουσας βαθμολογίας</button>
+      </div>
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>Έτος</th>
+              <th>Τουρνουά</th>
+              <th>🏆 1ος</th>
+              <th>🥈 2ος</th>
+              <th>🥉 3ος</th>
+              <th class="num" style="width:80px;">Διαγραφή</th>
+            </tr>
+          </thead>
+          <tbody id="hallBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title" style="margin-bottom:6px;">🛟 Αντίγραφο ασφαλείας Τουρνουά &amp; Hall of Fame</div>
+      <div style="font-size:0.82rem; color:var(--muted); margin-bottom:10px;">Για μεταφορά σε άλλη συσκευή ή προστασία των αποθηκευμένων τουρνουά και του Hall of Fame.</div>
+      <div class="filter-bar">
+        <button class="btn-outline" onclick="exportLibrary()">💾 Εξαγωγή (.json)</button>
+        <button class="btn-outline" onclick="document.getElementById('importLibFile').click()">📂 Εισαγωγή</button>
+        <input type="file" id="importLibFile" accept=".json" style="display:none" onchange="importLibrary(event)">
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 4: ΚΑΝΟΝΙΣΜΟΣ -->
+  <div id="tab-rules" class="tab-content">
+    <div class="card rules-box">
+      <h3>0. ΘΕΜΕΛΙΩΔΗΣ ΑΡΧΗ ΕΓΚΥΡΟΤΗΤΑΣ ΔΕΔΟΜΕΝΩΝ</h3>
+      <p>Ισχύει απαρέγκλιτα ό,τι αναγράφεται στην επίσημη ιστοσελίδα της Boca Sport, ακόμη κι αν έχει γίνει λάθος καταχώριση από τον υπεύθυνο που πέρασε τα αποτελέσματα και γνωρίζουμε ότι είναι λανθασμένο. Ο κανόνας αυτός εφαρμόζεται οριζόντια και ισότιμα για όλες τις ομάδες που συμμετέχουν στη διοργάνωση.</p>
+
+      <h3>1. ΣΚΟΠΟΣ ΤΟΥ ΣΥΝΤΕΛΕΣΤΗ «Δ» (ΔΙΑΣΤΑΥΡΩΣΗ)</h3>
+      <p>Επειδή στο τουρνουά (1 γύρος) οι ομάδες ενδέχεται να μην αγωνιστούν σε όλες τις αγωνιστικές (π.χ. μία ομάδα να έχει 9 αγώνες, άλλη 8 ή 7), εισάγεται ο Συντελεστής «Δ» (εμπνευσμένος από τη Θύελλα Διασταύρωσης Ραφήνας) ώστε η τελική κατάταξη να αποδίδει δίκαια τον Πρωταθλητή.</p>
+
+      <h3>2. ΜΑΘΗΜΑΤΙΚΟΣ ΤΥΠΟΣ ΣΥΝΤΕΛΕΣΤΗ «Δ»</h3>
+      <div class="formula-highlight">Δ = Β - (0,6 × Χ)</div>
+      <p>Όπου: <strong>Β</strong> = Κανονικοί Βαθμοί (Νίκη = 3β., Ισοπαλία = 1β., Ήττα = 0β.) και <strong>Χ</strong> = Σύνολο Ισοπαλιών της ομάδας.</p>
+      <ul>
+        <li>Αν η Ομάδα Α έχει +1 βαθμό και +1 ισοπαλία διαφορά από τη Β (με 1 αγώνα παραπάνω, π.χ. 8Ν–1Ι έναντι 8Ν–0Ι), διατηρεί προβάδισμα +0,4 στον συντελεστή Δ και παραμένει πάνω από τη Β.</li>
+        <li><strong>Μέγιστη διαφορά αγώνων (έως 2 αγώνες):</strong> Για να ισχύσει ο συντελεστής Δ, πρέπει η Ομάδα Β να έχει παίξει το πολύ 2 αγώνες λιγότερους από την Ομάδα Α (δηλαδή διαφορά αγώνων <code>Α - Β &le; 2</code>).</li>
+        <li>Αν η Ομάδα Β έχει περισσότερους από 2 αγώνες λιγότερους από την Ομάδα Α (<code>Α - Β &gt; 2</code>), τότε <strong>Ο ΣΥΝΤΕΛΕΣΤΗΣ Δ ΔΕΝ ΙΣΧΥΕΙ</strong> και μετράει η κανονική βαθμολογία (Β) υπέρ της Ομάδας Α.</li>
+        <li>Αν η Ομάδα Α και η Ομάδα Β είναι ισόβαθμες και η Α έχει +2 ισοπαλίες διαφορά από τη Β (π.χ. 7Ν–3Ι = 24β. έναντι 8Ν–0Ι = 24β., δηλαδή 2 αγώνες παραπάνω), η Α υπολείπεται στον συντελεστή Δ και η Β περνάει πάνω από την Α.</li>
+      </ul>
+
+      <h3>3. ΒΑΣΙΚΟΣ ΠΕΡΙΟΡΙΣΜΟΣ (ΑΞΙΩΜΑ ΜΕΤΑΞΥ ΤΟΥΣ ΑΓΩΝΩΝ)</h3>
+      <p>Για να ισχύσει η προσπέραση μέσω του συντελεστή Δ υπέρ της ομάδας Β (που έχει λιγότερους ή ίσους κανονικούς βαθμούς Β από την Α) έναντι της ομάδας Α, πρέπει στα μεταξύ τους παιχνίδια να <strong>ΜΗΝ</strong> υπερτερεί η ομάδα Α:</p>
+      <ul>
+        <li><strong>0 μεταξύ τους αγώνες:</strong> Θεωρείται «Χ» (ισορροπία) &rarr; Ο συντελεστής Δ ισχύει κανονικά.</li>
+        <li><strong>1 μεταξύ τους αγώνας:</strong> Αν έληξε Χ (ή κέρδισε η Β), ο Δ ισχύει. Αν κέρδισε η Α, ο Δ ακυρώνεται και η Α παραμένει πάνω από τη Β.</li>
+        <li><strong>2 ή περισσότεροι (1+) μεταξύ τους αγώνες:</strong> Ελέγχεται το σύνολο των μεταξύ τους νικών. Αν η Α έχει περισσότερες νίκες από τη Β, ο Δ ακυρώνεται (μένει μπροστά η Α). Σε ισοπαλία νικών ή υπεροχή της Β, ο Δ ισχύει κανονικά.</li>
+        <li><strong>Σημείωση:</strong> Αν η Ομάδα Β έχει ήδη περισσότερους κανονικούς βαθμούς (Β) από την Ομάδα Α, περνάει μπροστά ούτως ή άλλως βάσει βαθμολογίας και το αξίωμα δεν ενεργοποιείται.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div id="toast" class="toast">Αποθηκεύτηκε!</div>
+
+<script>
+  const STORAGE_KEY = 'boca_sport_delta_tournament_v1';
+
+  const DEFAULT_TEAMS = [
+    "ΑΠΟ Θύελλα Ραφήνας",
+    "Σχολή ΟΣΦΠ Γλυκά Νερά",
+    "Kicks Academy",
+    "Αήττητος Σπατών",
+    "ΑΟ Άρτεμις",
+    "ΑΟ Κορωπίου",
+    "Εθνικός Νέας Μάκρης",
+    "Θησέας Νέας Μάκρης",
+    "Πανιώνιος Νέας Μάκρης",
+    "Σαρωνικός Αναβύσσου",
+    "Falcons Academy",
+    "ΑΠΟ Παμπαιανικός",
+    "ΑΟ Παλληνιακός",
+    "ΑΟ Γλυκών Νερών Αττικής",
+    "Δόξα Κοροπίου",
+    "ΑΟ Τριγλίας Ραφήνας",
+    "", "", "", ""
+  ];
+
+  let appState = {
+    teams: [],
+    matches: []
+  };
+
+  function init() {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) {
+      try {
+        appState = JSON.parse(saved);
+      } catch (e) {
+        initDefaultState();
+      }
+    } else {
+      initDefaultState();
+    }
+
+    normalizeState();
+
+    // Ensure 20 team slots
+    while (appState.teams.length < 20) {
+      appState.teams.push({ id: appState.teams.length + 1, name: "", logo: "" });
+    }
+
+    refreshAll();
+  }
+
+  function initDefaultState() {
+    appState = {
+      teams: DEFAULT_TEAMS.map((name, idx) => ({
+        id: idx + 1,
+        name: name,
+        logo: ""
+      })),
+      matches: []
+    };
+    saveState(false);
+  }
+
+  function saveState(showNotify = true) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
+    if (showNotify) {
+      showToast("Οι αλλαγές αποθηκεύτηκαν αυτόματα");
+    }
+  }
+
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2200);
+  }
+
+  function switchTab(tabId, btn) {
+    document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+    document.getElementById('tab-' + tabId).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  function getActiveTeams() {
+    return appState.teams.filter(t => t.name && t.name.trim() !== "");
+  }
+
+  function getTeamById(id) {
+    return appState.teams.find(t => t.id === Number(id));
+  }
+
+  function renderTeamLogo(team) {
+    if (!team) return '<span class="team-logo-placeholder">?</span>';
+    if (team.logo) {
+      return `<img src="${team.logo}" class="team-logo" alt="">`;
+    }
+    const initials = team.name.trim().substring(0, 2).toUpperCase();
+    return `<span class="team-logo-placeholder">${initials}</span>`;
+  }
+
+  // ==========================================
+  // CORE RANKING ALGORITHM (ΣΥΝΤΕΛΕΣΤΗΣ Δ & ΑΞΙΩΜΑ)
+  // ==========================================
+  function computeStandings(maxRound = null) {
+    const activeTeams = getActiveTeams();
+    const stats = {};
+
+    activeTeams.forEach(t => {
+      stats[t.id] = {
+        team: t,
+        played: 0,
+        w: 0,
+        d: 0,
+        l: 0,
+        gf: 0,
+        ga: 0,
+        gd: 0,
+        pts: 0,
+        delta: 0,
+        notes: []
+      };
+    });
+
+    // Head-to-head wins matrix: h2hWins[winnerId][loserId] = count
+    const h2hWins = {};
+    activeTeams.forEach(t => { h2hWins[t.id] = {}; });
+
+    const validMatches = appState.matches.filter(m => {
+      if (m.homeGoals === null || m.homeGoals === "" || m.awayGoals === null || m.awayGoals === "") return false;
+      if (!stats[m.homeId] || !stats[m.awayId]) return false;
+      if (maxRound !== null && Number(m.round) > Number(maxRound)) return false;
+      return true;
+    });
+
+    validMatches.forEach(m => {
+      const hg = Number(m.homeGoals);
+      const ag = Number(m.awayGoals);
+      const home = stats[m.homeId];
+      const away = stats[m.awayId];
+
+      home.played++;
+      away.played++;
+      home.gf += hg;
+      home.ga += ag;
+      away.gf += ag;
+      away.ga += hg;
+
+      if (hg > ag) {
+        home.w++;
+        home.pts += 3;
+        away.l++;
+        h2hWins[m.homeId][m.awayId] = (h2hWins[m.homeId][m.awayId] || 0) + 1;
+      } else if (hg < ag) {
+        away.w++;
+        away.pts += 3;
+        home.l++;
+        h2hWins[m.awayId][m.homeId] = (h2hWins[m.awayId][m.homeId] || 0) + 1;
+      } else {
+        home.d++;
+        away.d++;
+        home.pts += 1;
+        away.pts += 1;
+      }
+    });
+
+    const list = Object.values(stats).map(s => {
+      s.gd = s.gf - s.ga;
+      // Δ = Β - (0,6 * Χ), rounded to 2 decimals to avoid floating point precision issues
+      s.delta = Math.round((s.pts - 0.6 * s.d) * 100) / 100;
+      return s;
+    });
+
+    // Helper: determines if team B (with ptsB <= ptsA) legally overtakes team A via Delta
+    // Returns { overtakes: boolean, reason: string }
+    function canOvertakeViaDelta(A, B) {
+      // B must have strictly greater Delta than A to overtake
+      if (B.delta <= A.delta) {
+        return { overtakes: false, reason: null };
+      }
+
+      // Rule 2: Max match difference <= 2 (A.played - B.played <= 2)
+      const matchDiff = A.played - B.played;
+      if (matchDiff > 2) {
+        return {
+          overtakes: false,
+          reason: `Δεν ισχύει ο Δ υπέρ ${B.team.name} έναντι ${A.team.name} (διαφορά ${matchDiff} αγώνων > 2)`
+        };
+      }
+
+      // Rule 3: Head-to-head Axiom (A must NOT have more H2H wins than B)
+      const winsA = h2hWins[A.team.id][B.team.id] || 0;
+      const winsB = h2hWins[B.team.id][A.team.id] || 0;
+      if (winsA > winsB) {
+        return {
+          overtakes: false,
+          reason: `Αξίωμα μεταξύ τους αγώνων: Η ομάδα ${A.team.name} υπερτερεί στα μεταξύ τους (${winsA}-${winsB} νίκες) έναντι ${B.team.name} και ακυρώνει τον Δ`
+        };
+      }
+
+      return {
+        overtakes: true,
+        reason: `Προσπέραση μέσω Συντελεστή Δ: ${B.team.name} (Δ=${B.delta.toFixed(1)}, ${B.pts}β.) περνάει πάνω από ${A.team.name} (Δ=${A.delta.toFixed(1)}, ${A.pts}β.)`
+      };
+    }
+
+    // Standard base ordering by normal points (B), then Delta, then GD, then GF
+    list.sort((x, y) => {
+      if (y.pts !== x.pts) return y.pts - x.pts;
+      if (y.delta !== x.delta) return y.delta - x.delta;
+      if (y.gd !== x.gd) return y.gd - x.gd;
+      if (y.gf !== x.gf) return y.gf - x.gf;
+      return x.team.id - y.team.id;
+    });
+
+    // Bubble/Insertion pass to apply pairwise Delta overtaking rules cleanly and deterministically
+    const explanations = new Set();
+    let changed = true;
+    let guard = 0;
+    while (changed && guard < 400) {
+      changed = false;
+      guard++;
+      for (let i = 0; i < list.length - 1; i++) {
+        const upper = list[i];     // Currently higher (A)
+        const lower = list[i + 1]; // Currently lower (B)
+
+        // Case 1: lower has strictly MORE normal points -> lower always belongs above upper
+        if (lower.pts > upper.pts) {
+          list[i] = lower;
+          list[i + 1] = upper;
+          changed = true;
+          continue;
+        }
+
+        // Case 2: lower has fewer or equal normal points -> check Delta overtaking conditions
+        if (lower.pts <= upper.pts) {
+          const check = canOvertakeViaDelta(upper, lower);
+          if (check.overtakes) {
+            list[i] = lower;
+            list[i + 1] = upper;
+            if (check.reason) explanations.add(check.reason);
+            if (!lower.notes.includes('Άνοδος με Δ')) lower.notes.push('Άνοδος με Δ');
+            changed = true;
+          } else if (check.reason) {
+            explanations.add(check.reason);
+            if (check.reason.includes('Αξίωμα') && !upper.notes.includes('Κράτησε θέση (Αξίωμα)')) {
+              upper.notes.push('Κράτησε θέση (Αξίωμα)');
+            }
+            if (check.reason.includes('διαφορά') && !upper.notes.includes('Κράτησε θέση (>2 αγ.)')) {
+              upper.notes.push('Κράτησε θέση (>2 αγ.)');
+            }
+          }
+        }
+      }
+    }
+
+    return { standings: list, explanations: Array.from(explanations) };
+  }
+
+  // ==========================================
+  // RENDERING FUNCTIONS
+  // ==========================================
+  function renderStandings() {
+    const filterVal = document.getElementById('roundFilterStandings').value;
+    const maxRound = filterVal === 'ALL' ? null : Number(filterVal);
+    const { standings, explanations } = computeStandings(maxRound);
+
+    const tbody = document.getElementById('standingsBody');
+    tbody.innerHTML = '';
+
+    standings.forEach((row, index) => {
+      const pos = index + 1;
+      const posClass = pos <= 3 ? `pos-${pos}` : '';
+      const gdFormatted = row.gd > 0 ? `+${row.gd}` : row.gd;
+
+      let badgesHtml = '';
+      row.notes.forEach(n => {
+        if (n.includes('Άνοδος')) badgesHtml += `<span class="badge-note badge-up">▲ ${n}</span> `;
+        else if (n.includes('Αξίωμα')) badgesHtml += `<span class="badge-note badge-axiom">🛡️ ${n}</span> `;
+        else badgesHtml += `<span class="badge-note badge-limit">⚠️ ${n}</span> `;
+      });
+
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td class="num"><span class="pos-badge ${posClass}">${pos}</span></td>
+        <td>
+          <div class="team-cell">
+            ${renderTeamLogo(row.team)}
+            <span>${escapeHtml(row.team.name)}</span>
+          </div>
+        </td>
+        <td class="num">${row.played}</td>
+        <td class="num">${row.w}</td>
+        <td class="num">${row.d}</td>
+        <td class="num">${row.l}</td>
+        <td class="num">${row.gf}</td>
+        <td class="num">${row.ga}</td>
+        <td class="num">${gdFormatted}</td>
+        <td class="num pts-val">${row.pts}</td>
+        <td class="num delta-val">${row.delta.toFixed(1)}</td>
+        <td>${badgesHtml || '<span style="color:#94a3b8; font-size:0.8rem;">—</span>'}</td>
+      `;
+      tbody.appendChild(tr);
+    });
+
+    const expCard = document.getElementById('explanationsCard');
+    const expList = document.getElementById('explanationsList');
+    if (explanations.length > 0) {
+      expCard.style.display = 'block';
+      expList.innerHTML = '<ul style="padding-left:18px;">' + explanations.map(e => `<li style="margin-bottom:4px;">${escapeHtml(e)}</li>`).join('') + '</ul>';
+    } else {
+      expCard.style.display = 'none';
+    }
+  }
+
+  function populateDropdowns() {
+    const activeTeams = getActiveTeams();
+    const homeSel = document.getElementById('matchHome');
+    const awaySel = document.getElementById('matchAway');
+    const filterTeamSel = document.getElementById('filterMatchTeam');
+
+    const prevHome = homeSel.value;
+    const prevAway = awaySel.value;
+    const prevFilterTeam = filterTeamSel.value;
+
+    const optionsHtml = activeTeams.map(t => `<option value="${t.id}">${escapeHtml(t.name)}</option>`).join('');
+    homeSel.innerHTML = '<option value="">-- Επιλογή Γηπεδούχου --</option>' + optionsHtml;
+    awaySel.innerHTML = '<option value="">-- Επιλογή Φιλοξενούμενου --</option>' + optionsHtml;
+    filterTeamSel.innerHTML = '<option value="ALL">Όλες οι ομάδες</option>' + optionsHtml;
+
+    if (prevHome) homeSel.value = prevHome;
+    if (prevAway) awaySel.value = prevAway;
+    if (prevFilterTeam) filterTeamSel.value = prevFilterTeam;
+
+    // Rounds dropdowns
+    const rounds = [...new Set(appState.matches.map(m => Number(m.round)))].sort((a, b) => a - b);
+    const roundFilterMatches = document.getElementById('filterMatchRound');
+    const roundFilterStandings = document.getElementById('roundFilterStandings');
+
+    const prevMR = roundFilterMatches.value;
+    const prevSR = roundFilterStandings.value;
+
+    const roundOpts = rounds.map(r => `<option value="${r}">${r}η Αγωνιστική</option>`).join('');
+    roundFilterMatches.innerHTML = '<option value="ALL">Όλες οι αγωνιστικές</option>' + roundOpts;
+    roundFilterStandings.innerHTML = '<option value="ALL">Όλες οι αγωνιστικές</option>' + roundOpts;
+
+    if (prevMR) roundFilterMatches.value = prevMR;
+    if (prevSR) roundFilterStandings.value = prevSR;
+  }
+
+  function addMatch() {
+    const round = Number(document.getElementById('matchRound').value) || 1;
+    const homeId = Number(document.getElementById('matchHome').value);
+    const awayId = Number(document.getElementById('matchAway').value);
+    const hgRaw = document.getElementById('matchHomeGoals').value;
+    const agRaw = document.getElementById('matchAwayGoals').value;
+
+    if (!homeId || !awayId) {
+      alert("Παρακαλώ επιλέξτε Γηπεδούχο και Φιλοξενούμενο.");
+      return;
+    }
+    if (homeId === awayId) {
+      alert("Μια ομάδα δεν μπορεί να αγωνιστεί με τον εαυτό της.");
+      return;
+    }
+
+    const homeGoals = hgRaw === "" ? null : Number(hgRaw);
+    const awayGoals = agRaw === "" ? null : Number(agRaw);
+
+    appState.matches.push({
+      id: Date.now(),
+      round,
+      homeId,
+      awayId,
+      homeGoals,
+      awayGoals
+    });
+
+    document.getElementById('matchHomeGoals').value = '';
+    document.getElementById('matchAwayGoals').value = '';
+
+    saveState();
+    refreshAll();
+  }
+
+  function updateMatchScore(matchId, side, val) {
+    const m = appState.matches.find(x => x.id === matchId);
+    if (!m) return;
+    const parsed = val === "" ? null : Number(val);
+    if (side === 'home') m.homeGoals = parsed;
+    if (side === 'away') m.awayGoals = parsed;
+    saveState();
+    renderStandings();
+    renderMatches();
+  }
+
+  function deleteMatch(matchId) {
+    if (!confirm("Διαγραφή αυτού του αγώνα;")) return;
+    appState.matches = appState.matches.filter(x => x.id !== matchId);
+    saveState();
+    refreshAll();
+  }
+
+  function renderMatches() {
+    const roundFilter = document.getElementById('filterMatchRound').value;
+    const teamFilter = document.getElementById('filterMatchTeam').value;
+
+    let filtered = [...appState.matches].sort((a, b) => a.round - b.round || a.id - b.id);
+
+    if (roundFilter !== 'ALL') {
+      filtered = filtered.filter(m => String(m.round) === String(roundFilter));
+    }
+    if (teamFilter !== 'ALL') {
+      filtered = filtered.filter(m => String(m.homeId) === String(teamFilter) || String(m.awayId) === String(teamFilter));
+    }
+
+    document.getElementById('matchCount').textContent = filtered.length;
+    const tbody = document.getElementById('matchesBody');
+    tbody.innerHTML = '';
+
+    if (filtered.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="7" style="text-align:center; color:var(--muted); padding:24px;">Δεν υπάρχουν καταχωρισμένοι αγώνες.</td></tr>';
+      return;
+    }
+
+    filtered.forEach((m, idx) => {
+      const home = getTeamById(m.homeId);
+      const away = getTeamById(m.awayId);
+      const hasScore = m.homeGoals !== null && m.homeGoals !== "" && m.awayGoals !== null && m.awayGoals !== "";
+
+      let sign = '—';
+      if (hasScore) {
+        if (Number(m.homeGoals) > Number(m.awayGoals)) sign = '1';
+        else if (Number(m.homeGoals) < Number(m.awayGoals)) sign = '2';
+        else sign = 'Χ';
+      }
+
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td class="num">${idx + 1}</td>
+        <td class="num">${m.round}η</td>
+        <td>
+          <div class="team-cell">
+            ${renderTeamLogo(home)}
+            <span>${home ? escapeHtml(home.name) : 'Άγνωστη'}</span>
+          </div>
+        </td>
+        <td class="num" style="white-space:nowrap;">
+          <input type="number" min="0" max="99" value="${m.homeGoals !== null ? m.homeGoals : ''}"
+                 onchange="updateMatchScore(${m.id}, 'home', this.value)"
+                 style="width:48px; text-align:center; font-weight:700;" placeholder="-">
+          <span style="margin:0 4px; font-weight:700;">:</span>
+          <input type="number" min="0" max="99" value="${m.awayGoals !== null ? m.awayGoals : ''}"
+                 onchange="updateMatchScore(${m.id}, 'away', this.value)"
+                 style="width:48px; text-align:center; font-weight:700;" placeholder="-">
+        </td>
+        <td>
+          <div class="team-cell">
+            ${renderTeamLogo(away)}
+            <span>${away ? escapeHtml(away.name) : 'Άγνωστη'}</span>
+          </div>
+        </td>
+        <td class="num" style="font-weight:700;">${sign}</td>
+        <td class="num">
+          <button class="btn-danger" style="padding:5px 10px; font-size:0.78rem;" onclick="deleteMatch(${m.id})">🗑️</button>
+        </td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+
+  function renderTeams() {
+    const tbody = document.getElementById('teamsBody');
+    tbody.innerHTML = '';
+
+    appState.teams.forEach((team, idx) => {
+      const aliasText = (team.aliases || []).join('; ');
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td class="num">${idx + 1}</td>
+        <td>${renderTeamLogo(team)}</td>
+        <td>
+          <input type="text" value="${escapeHtml(team.name)}" placeholder="Κενή θέση ομάδας ${idx + 1}..."
+                 onchange="updateTeamName(${team.id}, this.value)" style="width:100%; max-width:340px;">
+        </td>
+        <td>
+          <input type="text" value="${escapeHtml(aliasText)}" placeholder="π.χ. ΘΥΕΛΛΑ ΡΑΦΗΝΑΣ BLACK; ΘΥΕΛΛΑ Β"
+                 onchange="updateTeamAliases(${team.id}, this.value)" style="width:100%; min-width:220px;">
+        </td>
+        <td>
+          <input type="file" id="logoInput_${team.id}" accept="image/*" style="display:none" onchange="uploadTeamLogo(${team.id}, event)">
+          <button class="btn-outline" style="padding:5px 10px; font-size:0.8rem;" onclick="document.getElementById('logoInput_${team.id}').click()">🖼️ Σήμα</button>
+          ${team.logo ? `<button class="btn-outline" style="padding:5px 10px; font-size:0.8rem; color:var(--danger);" onclick="removeTeamLogo(${team.id})">✖ Αφαίρεση</button>` : ''}
+        </td>
+        <td class="num">
+          ${team.name ? `<button class="btn-danger" style="padding:5px 10px; font-size:0.78rem;" onclick="deleteTeam(${team.id})">🗑️</button>` : ''}
+        </td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+
+  function updateTeamName(teamId, newName) {
+    const t = getTeamById(teamId);
+    if (!t) return;
+    t.name = newName.trim();
+    saveState();
+    refreshAll();
+  }
+
+  function uploadTeamLogo(teamId, event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      // Resize image via canvas to keep localStorage lightweight
+      const img = new Image();
+      img.onload = function() {
+        const canvas = document.createElement('canvas');
+        const maxDim = 96;
+        let w = img.width;
+        let h = img.height;
+        if (w > h) {
+          if (w > maxDim) { h *= maxDim / w; w = maxDim; }
+        } else {
+          if (h > maxDim) { w *= maxDim / h; h = maxDim; }
+        }
+        canvas.width = w;
+        canvas.height = h;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, w, h);
+        const dataUrl = canvas.toDataURL('image/png', 0.85);
+
+        const t = getTeamById(teamId);
+        if (t) {
+          t.logo = dataUrl;
+          saveState();
+          refreshAll();
+        }
+      };
+      img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  }
+
+  function removeTeamLogo(teamId) {
+    const t = getTeamById(teamId);
+    if (!t) return;
+    t.logo = "";
+    saveState();
+    refreshAll();
+  }
+
+  function resetDefaultTeams() {
+    if (!confirm("Θέλετε να επαναφέρετε τα 16 αρχικά ονόματα ομάδων; (Οι αγώνες δεν θα διαγραφούν)")) return;
+    DEFAULT_TEAMS.forEach((name, idx) => {
+      if (appState.teams[idx]) {
+        appState.teams[idx].name = name;
+      }
+    });
+    saveState();
+    refreshAll();
+  }
+
+  function exportData() {
+    const dataStr = JSON.stringify(appState, null, 2);
+    const blob = new Blob([dataStr], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    const dateTag = new Date().toISOString().slice(0, 10);
+    a.href = url;
+    a.download = `BocaSport_Katataxi_Backup_${dateTag}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+
+  function importData(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      try {
+        const imported = JSON.parse(e.target.result);
+        if (imported && Array.isArray(imported.teams) && Array.isArray(imported.matches)) {
+          appState = imported;
+          normalizeState();
+          while (appState.teams.length < 20) {
+            appState.teams.push({ id: appState.teams.length + 1, name: "", logo: "" });
+          }
+          saveState();
+          refreshAll();
+          showToast("Το αρχείο Backup φορτώθηκε επιτυχώς!");
+        } else {
+          alert("Μη έγκυρο αρχείο backup.");
+        }
+      } catch (err) {
+        alert("Σφάλμα κατά την ανάγνωση του αρχείου.");
+      }
+    };
+    reader.readAsText(file);
+    event.target.value = "";
+  }
+
+  function escapeHtml(str) {
+    if (!str) return "";
+    return str.replace(/[&<>"']/g, function(m) {
+      return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[m];
+    });
+  }
+
+  function refreshAll() {
+    populateDropdowns();
+    renderTeams();
+    renderMatches();
+    renderStandings();
+    renderTournamentTitle();
+    renderLibrary();
+  }
+
+  // ==========================================
+  // ΝΕΕΣ ΛΕΙΤΟΥΡΓΙΕΣ
+  // ==========================================
+  const LIB_KEY = 'boca_sport_library_v1';
+  const BASE_TITLE = 'Κανονισμός Κατάταξης & Συντελεστής «Δ» - Boca Sport';
+  const LOOKALIKE = { 'Α':'A','Β':'B','Ε':'E','Ζ':'Z','Η':'H','Ι':'I','Κ':'K','Μ':'M','Ν':'N','Ο':'O','Ρ':'P','Τ':'T','Υ':'Y','Χ':'X' };
+
+  // Συμπληρώνει τα νέα πεδία σε παλιά δεδομένα/backup (δεν αλλάζει τίποτα υπάρχον)
+  function normalizeState() {
+    if (!appState || typeof appState !== 'object') appState = { teams: [], matches: [] };
+    if (!Array.isArray(appState.teams)) appState.teams = [];
+    if (!Array.isArray(appState.matches)) appState.matches = [];
+    if (typeof appState.tournamentName !== 'string') appState.tournamentName = '';
+    appState.teams.forEach(t => { if (!Array.isArray(t.aliases)) t.aliases = []; });
+    let maxId = appState.teams.reduce((m, t) => Math.max(m, Number(t.id) || 0), 0);
+    while (appState.teams.length < 20) {
+      appState.teams.push({ id: ++maxId, name: "", logo: "", aliases: [] });
+    }
+  }
+
+  // Κανονικοποίηση ονομάτων: χωρίς τόνους, κεφαλαία, ίδια λατινικά/ελληνικά όμοια γράμματα
+  function normName(s) {
+    return String(s || '')
+      .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+      .toUpperCase()
+      .replace(/[ΑΒΕΖΗΙΚΜΝΟΡΤΥΧ]/g, c => LOOKALIKE[c])
+      .replace(/[^\p{L}\p{N}]+/gu, ' ')
+      .trim();
+  }
+
+  function isBye(name) {
+    return normName(name) === normName('ΡΕΠΟ');
+  }
+
+  function extractYear(title) {
+    const m = String(title || '').match(/\b(?:19|20)\d{2}(?:\s*[-–\/]\s*(?:(?:19|20)\d{2}|\d{2}))?\b/);
+    return m ? m[0].replace(/\s+/g, '') : '';
+  }
+
+  // ---------- Τίτλος τουρνουά ----------
+  function setTournamentName(v) {
+    appState.tournamentName = v;
+    saveState(false);
+    renderTournamentTitle();
+  }
+
+  function renderTournamentTitle() {
+    const name = (appState.tournamentName || '').trim();
+    const hdr = document.getElementById('headerTournament');
+    hdr.textContent = name;
+    hdr.style.display = name ? 'block' : 'none';
+    document.getElementById('printTitle').textContent = name;
+    document.title = name ? name + ' – Κατάταξη & Συντελεστής «Δ» - Boca Sport' : BASE_TITLE;
+    const inp = document.getElementById('tournamentNameInput');
+    if (document.activeElement !== inp) inp.value = appState.tournamentName || '';
+  }
+
+  // ---------- Ομάδες & ψευδώνυμα ----------
+  function addTeam(name, aliases) {
+    let slot = appState.teams.find(t => !t.name || t.name.trim() === "");
+    if (!slot) {
+      const maxId = appState.teams.reduce((m, t) => Math.max(m, Number(t.id) || 0), 0);
+      slot = { id: maxId + 1, name: "", logo: "", aliases: [] };
+      appState.teams.push(slot);
+    }
+    slot.name = name.trim();
+    slot.logo = "";
+    slot.aliases = aliases ? aliases.slice() : [];
+    return slot.id;
+  }
+
+  function addTeamUI() {
+    const name = prompt("Όνομα νέας ομάδας:");
+    if (!name || !name.trim()) return;
+    addTeam(name, []);
+    saveState();
+    refreshAll();
+  }
+
+  function updateTeamAliases(teamId, raw) {
+    const t = getTeamById(teamId);
+    if (!t) return;
+    const seen = new Set();
+    t.aliases = raw.split(/[;\n]+/).map(a => a.trim()).filter(a => {
+      const k = normName(a);
+      if (!a || seen.has(k)) return false;
+      seen.add(k);
+      return true;
+    });
+    saveState();
+    renderTeams();
+  }
+
+  function deleteTeam(teamId) {
+    const t = getTeamById(teamId);
+    if (!t) return;
+    const n = appState.matches.filter(m => m.homeId === teamId || m.awayId === teamId).length;
+    const msg = n > 0
+      ? `Διαγραφή της ομάδας «${t.name}»; Θα διαγραφούν και οι ${n} αγώνες της.`
+      : `Διαγραφή της ομάδας «${t.name}»;`;
+    if (!confirm(msg)) return;
+    appState.matches = appState.matches.filter(m => m.homeId !== teamId && m.awayId !== teamId);
+    t.name = "";
+    t.logo = "";
+    t.aliases = [];
+    saveState();
+    refreshAll();
+  }
+
+  function findTeamByName(name) {
+    const k = normName(name);
+    return getActiveTeams().find(t =>
+      normName(t.name) === k || (t.aliases || []).some(a => normName(a) === k)
+    ) || null;
+  }
+
+  // ---------- Έξυπνος αναγνώστης Boca Sport ----------
+  let readerParsed = null;
+
+  function parseBocaText(text) {
+    const lines = text.split(/\r?\n/);
+    const res = { title: '', rows: [], played: 0, unplayed: 0, bye: 0, rounds: new Set() };
+
+    const idx = lines.findIndex(l => l.trim() === 'Πρωτάθλημα');
+    if (idx > 0) {
+      for (let i = idx - 1; i >= 0; i--) {
+        const t = lines[i].trim();
+        if (t) { res.title = t; break; }
+      }
+    }
+    if (/^Τουρνουά\s+BOCA$/i.test(res.title)) res.title = '';
+
+    let round = null;
+    lines.forEach(line => {
+      const tl = line.trim();
+      if (!tl) return;
+      const rm = tl.match(/^Αγωνιστική\s+(\d+)$/i);
+      if (rm) { round = Number(rm[1]); return; }
+      if (round === null) return;
+
+      const parts = line.split(/\t+|\s{2,}/).map(x => x.trim()).filter(Boolean);
+      while (parts.length && /^Λεπτομέρειες$/i.test(parts[parts.length - 1])) parts.pop();
+      if (parts.length < 5) return;
+
+      const [home, hg, sep, ag, away] = parts.slice(-5);
+      if (sep !== '-' || !/^(\d+|-)$/.test(hg) || !/^(\d+|-)$/.test(ag)) return;
+
+      if (isBye(home) || isBye(away)) { res.bye++; return; }
+
+      const played = /^\d+$/.test(hg) && /^\d+$/.test(ag);
+      res.rows.push({ round, home, away, hg: played ? Number(hg) : null, ag: played ? Number(ag) : null });
+      res.rounds.add(round);
+      if (played) res.played++; else res.unplayed++;
+    });
+    return res;
+  }
+
+  function clearReader() {
+    document.getElementById('readerText').value = '';
+    document.getElementById('readerPreview').innerHTML = '';
+    readerParsed = null;
+  }
+
+  function analyzeReader() {
+    const text = document.getElementById('readerText').value;
+    const box = document.getElementById('readerPreview');
+    if (!text.trim()) { box.innerHTML = ''; readerParsed = null; return; }
+
+    const p = parseBocaText(text);
+    if (!p.rows.length) {
+      box.innerHTML = '<div style="padding:12px; background:#fee2e2; color:#991b1b; border-radius:8px; font-size:0.9rem;">Δεν αναγνωρίστηκαν αγώνες. Βεβαιωθείτε ότι επικολλήσατε ολόκληρη τη σελίδα του προγράμματος (Ctrl+A → Ctrl+C).</div>';
+      readerParsed = null;
+      return;
+    }
+
+    const names = new Map();
+    p.rows.forEach(r => [r.home, r.away].forEach(n => {
+      const k = normName(n);
+      if (!names.has(k)) names.set(k, n.trim());
+    }));
+    p.matchedMap = {};
+    p.unmatched = [];
+    names.forEach((disp, k) => {
+      const t = findTeamByName(disp);
+      if (t) p.matchedMap[k] = t.id; else p.unmatched.push({ key: k, name: disp });
+    });
+    p.teamCount = names.size;
+    readerParsed = p;
+
+    const activeOpts = getActiveTeams().map(t => `<option value="${t.id}">${escapeHtml(t.name)}</option>`).join('');
+    let html = `<div class="reader-stats">
+      <span class="stat-chip">📅 ${p.rounds.size} αγωνιστικές</span>
+      <span class="stat-chip">✅ ${p.played} αγώνες με σκορ</span>
+      <span class="stat-chip warn">⏭️ ${p.unplayed} χωρίς σκορ (παραλείπονται)</span>
+      <span class="stat-chip warn">💤 ${p.bye} ΡΕΠΟ (παραλείπονται)</span>
+      <span class="stat-chip">🛡️ ${p.teamCount} ομάδες στο κείμενο</span>
+    </div>`;
+    if (p.title) {
+      html += `<div style="font-size:0.88rem; margin-bottom:8px;">Ονομασία τουρνουά: <strong>${escapeHtml(p.title)}</strong></div>`;
+    }
+
+    if (p.unmatched.length) {
+      html += `<div style="font-size:0.88rem; margin-bottom:6px;"><strong>${p.unmatched.length}</strong> ονόματα δεν αντιστοιχούν σε υπάρχουσα ομάδα. Επιλέξτε «Νέα ομάδα» ή αντιστοιχίστε τα σε υπάρχουσα (το όνομα του site θα αποθηκευτεί ως ψευδώνυμο):</div>
+      <div class="table-responsive"><table><thead><tr><th>Όνομα στο site</th><th>Ενέργεια</th></tr></thead><tbody>`;
+      p.unmatched.forEach((u, i) => {
+        html += `<tr><td style="font-weight:600;">${escapeHtml(u.name)}</td>
+          <td><select id="readerMap_${i}" style="width:100%; max-width:360px;">
+            <option value="new">➕ Νέα ομάδα «${escapeHtml(u.name)}»</option>${activeOpts}
+          </select></td></tr>`;
+      });
+      html += `</tbody></table></div>`;
+    } else {
+      html += `<div style="font-size:0.88rem; color:#166534; margin-bottom:6px;">✅ Όλες οι ομάδες αναγνωρίστηκαν.</div>`;
+    }
+
+    const titleEmpty = !(appState.tournamentName || '').trim();
+    html += `<div class="reader-opts">
+      <label><input type="radio" name="readerMode" value="update" checked> <strong>Ενημέρωση</strong> — προσθέτει μόνο τους νέους αγώνες, συμπληρώνει όσους υπάρχουν χωρίς σκορ και αφήνει ό,τι έχει ήδη καταχωρηθεί</label>
+      <label><input type="radio" name="readerMode" value="fresh"> <strong>Από την αρχή</strong> — διαγράφει ΟΛΟΥΣ τους υπάρχοντες αγώνες και τους ξαναγράφει από το κείμενο</label>
+      <label><input type="checkbox" id="readerOverwrite"> Στην «Ενημέρωση», αντικατάσταση σκορ που διαφέρουν από το site</label>
+      ${p.title ? `<label><input type="checkbox" id="readerUseTitle" ${titleEmpty ? 'checked' : ''}> Χρήση της ονομασίας «${escapeHtml(p.title)}» ως τίτλου τουρνουά</label>` : ''}
+      <label><input type="checkbox" id="readerCleanup"> Αφαίρεση ομάδων που δεν υπάρχουν στο κείμενο και δεν έχουν αγώνες</label>
+    </div>
+    <button class="btn-primary" onclick="applyReader()">✅ Εισαγωγή αποτελεσμάτων</button>`;
+    box.innerHTML = html;
+  }
+
+  function applyReader() {
+    const p = readerParsed;
+    if (!p) return;
+    const mode = document.querySelector('input[name="readerMode"]:checked').value;
+    const overwrite = document.getElementById('readerOverwrite').checked;
+    const useTitleEl = document.getElementById('readerUseTitle');
+    const cleanup = document.getElementById('readerCleanup').checked;
+
+    if (mode === 'fresh' && appState.matches.length > 0 &&
+        !confirm(`Θα διαγραφούν και οι ${appState.matches.length} υπάρχοντες αγώνες (και όσοι καταχωρήθηκαν χειρόγραφα) και θα ξαναγραφούν από το κείμενο. Συνέχεια;`)) return;
+
+    // Αντιστοίχιση ονομάτων → ομάδες
+    const keyToId = Object.assign({}, p.matchedMap);
+    p.unmatched.forEach((u, i) => {
+      const v = document.getElementById('readerMap_' + i).value;
+      if (v === 'new') {
+        keyToId[u.key] = addTeam(u.name, []);
+      } else {
+        const t = getTeamById(v);
+        if (t) {
+          if (!t.aliases.some(a => normName(a) === u.key) && normName(t.name) !== u.key) t.aliases.push(u.name);
+          keyToId[u.key] = t.id;
+        }
+      }
+    });
+
+    if (mode === 'fresh') appState.matches = [];
+
+    let idBase = Date.now();
+    const st = { added: 0, filled: 0, same: 0, conflicts: 0, replaced: 0 };
+    p.rows.forEach(r => {
+      if (r.hg === null || r.ag === null) return;
+      const hId = keyToId[normName(r.home)];
+      const aId = keyToId[normName(r.away)];
+      if (!hId || !aId || hId === aId) return;
+
+      const ex = appState.matches.find(x => Number(x.round) === r.round &&
+        ((x.homeId === hId && x.awayId === aId) || (x.homeId === aId && x.awayId === hId)));
+
+      if (!ex) {
+        appState.matches.push({ id: idBase++, round: r.round, homeId: hId, awayId: aId, homeGoals: r.hg, awayGoals: r.ag });
+        st.added++;
+        return;
+      }
+      const sameOrient = ex.homeId === hId;
+      const newH = sameOrient ? r.hg : r.ag;
+      const newA = sameOrient ? r.ag : r.hg;
+      const hasScore = ex.homeGoals !== null && ex.homeGoals !== "" && ex.awayGoals !== null && ex.awayGoals !== "";
+      if (!hasScore) {
+        ex.homeGoals = newH; ex.awayGoals = newA; st.filled++;
+      } else if (Number(ex.homeGoals) === newH && Number(ex.awayGoals) === newA) {
+        st.same++;
+      } else {
+        st.conflicts++;
+        if (overwrite) { ex.homeGoals = newH; ex.awayGoals = newA; st.replaced++; }
+      }
+    });
+
+    if (useTitleEl && useTitleEl.checked && p.title) appState.tournamentName = p.title;
+
+    if (cleanup) {
+      const inText = new Set(Object.values(keyToId));
+      const used = new Set();
+      appState.matches.forEach(m => { used.add(m.homeId); used.add(m.awayId); });
+      appState.teams.forEach(t => {
+        if (t.name && !inText.has(t.id) && !used.has(t.id)) { t.name = ""; t.logo = ""; t.aliases = []; }
+      });
+    }
+
+    saveState(false);
+    refreshAll();
+
+    let msg = `✅ Ολοκληρώθηκε: ${st.added} νέοι αγώνες`;
+    if (st.filled) msg += `, ${st.filled} συμπληρώθηκαν`;
+    if (st.same) msg += `, ${st.same} ήδη υπήρχαν`;
+    if (st.conflicts) msg += st.replaced ? `, ${st.replaced} σκορ αντικαταστάθηκαν` : `, ${st.conflicts} με διαφορετικό σκορ (δεν άλλαξαν)`;
+    msg += '.';
+    document.getElementById('readerPreview').innerHTML =
+      `<div style="padding:12px; background:#dcfce7; color:#166534; border-radius:8px; font-size:0.9rem; font-weight:600;">${msg}</div>`;
+    readerParsed = null;
+    showToast("Τα αποτελέσματα εισήχθησαν");
+  }
+
+  // ---------- Βιβλιοθήκη τουρνουά & Hall of Fame ----------
+  function loadLib() {
+    try {
+      const l = JSON.parse(localStorage.getItem(LIB_KEY));
+      if (l && Array.isArray(l.tournaments) && Array.isArray(l.hall)) return l;
+    } catch (e) {}
+    return { tournaments: [], hall: [] };
+  }
+
+  function saveLib(lib) {
+    try {
+      localStorage.setItem(LIB_KEY, JSON.stringify(lib));
+      return true;
+    } catch (e) {
+      alert("Η αποθήκευση απέτυχε (πιθανόν γέμισε ο διαθέσιμος χώρος). Κάντε εξαγωγή αντιγράφου ή διαγράψτε παλιά τουρνουά.");
+      return false;
+    }
+  }
+
+  function saveAsTournament() {
+    const inp = document.getElementById('saveAsName');
+    const name = inp.value.trim() || (appState.tournamentName || '').trim();
+    if (!name) { alert("Πληκτρολογήστε όνομα αποθήκευσης ή συμπληρώστε τον τίτλο του τουρνουά."); return; }
+
+    const lib = loadLib();
+    const existing = lib.tournaments.find(t => t.name === name);
+    if (existing && !confirm(`Υπάρχει ήδη αποθηκευμένο τουρνουά «${name}». Να αντικατασταθεί;`)) return;
+
+    const snapshot = JSON.parse(JSON.stringify(appState));
+    if (!snapshot.tournamentName) snapshot.tournamentName = name;
+    const entry = { id: existing ? existing.id : Date.now(), name, savedAt: new Date().toISOString(), state: snapshot };
+    if (existing) lib.tournaments = lib.tournaments.map(t => t.id === existing.id ? entry : t);
+    else lib.tournaments.push(entry);
+
+    if (saveLib(lib)) {
+      inp.value = '';
+      renderLibrary();
+      showToast(`Αποθηκεύτηκε: ${name}`);
+    }
+  }
+
+  function loadTournament(id) {
+    const entry = loadLib().tournaments.find(t => t.id === id);
+    if (!entry) return;
+    if (!confirm(`Φόρτωση του «${entry.name}»; Η τρέχουσα κατάσταση θα αντικατασταθεί (αποθηκεύστε την πρώτα αν τη χρειάζεστε).`)) return;
+    appState = JSON.parse(JSON.stringify(entry.state));
+    normalizeState();
+    saveState(false);
+    refreshAll();
+    showToast(`Φορτώθηκε: ${entry.name}`);
+  }
+
+  function deleteTournament(id) {
+    const lib = loadLib();
+    const entry = lib.tournaments.find(t => t.id === id);
+    if (!entry || !confirm(`Διαγραφή του αποθηκευμένου τουρνουά «${entry.name}»;`)) return;
+    lib.tournaments = lib.tournaments.filter(t => t.id !== id);
+    if (saveLib(lib)) renderLibrary();
+  }
+
+  function newTournament() {
+    if (!confirm("Νέο τουρνουά: θα διαγραφούν οι αγώνες και ο τίτλος. Οι ομάδες και τα ψευδώνυμα μένουν. Αν θέλετε να κρατήσετε το τρέχον, αποθηκεύστε το πρώτα. Συνέχεια;")) return;
+    appState.matches = [];
+    appState.tournamentName = '';
+    saveState(false);
+    refreshAll();
+    showToast("Δημιουργήθηκε νέο τουρνουά");
+  }
+
+  function addToHallOfFame() {
+    const title = (appState.tournamentName || '').trim();
+    if (!title) { alert("Πληκτρολογήστε πρώτα την ονομασία του τουρνουά στην καρτέλα «Βαθμολογία»."); return; }
+
+    const { standings } = computeStandings(null);
+    const top = standings.slice(0, 3);
+    if (top.length < 3 || top.every(s => s.played === 0)) {
+      alert("Δεν υπάρχει αρκετή βαθμολογία (χρειάζονται τουλάχιστον 3 ομάδες και αγώνες).");
+      return;
+    }
+
+    let year = extractYear(title);
+    if (!year) {
+      const ans = prompt("Δεν βρέθηκε έτος στον τίτλο. Πληκτρολογήστε το έτος διοργάνωσης:", String(new Date().getFullYear()));
+      if (!ans || !ans.trim()) return;
+      year = ans.trim();
+    }
+
+    const lib = loadLib();
+    const existing = lib.hall.find(h => h.title === title && h.year === year);
+    if (existing && !confirm(`Το «${title}» (${year}) υπάρχει ήδη στο Hall of Fame. Να αντικατασταθεί;`)) return;
+
+    const entry = {
+      id: existing ? existing.id : Date.now(),
+      title, year,
+      savedAt: new Date().toISOString(),
+      podium: top.map(s => ({ name: s.team.name, logo: s.team.logo || '', pts: s.pts, played: s.played }))
+    };
+    if (existing) lib.hall = lib.hall.map(h => h.id === existing.id ? entry : h);
+    else lib.hall.push(entry);
+
+    if (saveLib(lib)) {
+      renderLibrary();
+      showToast("Προστέθηκε στο Hall of Fame 🏆");
+    }
+  }
+
+  function deleteHall(id) {
+    const lib = loadLib();
+    const entry = lib.hall.find(h => h.id === id);
+    if (!entry || !confirm(`Διαγραφή «${entry.title}» (${entry.year}) από το Hall of Fame;`)) return;
+    lib.hall = lib.hall.filter(h => h.id !== id);
+    if (saveLib(lib)) renderLibrary();
+  }
+
+  function renderLibrary() {
+    const lib = loadLib();
+    const libBody = document.getElementById('libBody');
+    const hallBody = document.getElementById('hallBody');
+    if (!libBody || !hallBody) return;
+
+    if (!lib.tournaments.length) {
+      libBody.innerHTML = '<tr><td colspan="5" style="text-align:center; color:var(--muted); padding:24px;">Δεν υπάρχουν αποθηκευμένα τουρνουά.</td></tr>';
+    } else {
+      libBody.innerHTML = [...lib.tournaments].sort((a, b) => b.savedAt.localeCompare(a.savedAt)).map(t => {
+        const teams = (t.state.teams || []).filter(x => x.name && x.name.trim()).length;
+        const matches = (t.state.matches || []).length;
+        const when = new Date(t.savedAt).toLocaleString('el-GR');
+        return `<tr>
+          <td style="font-weight:600;">${escapeHtml(t.name)}</td>
+          <td>${escapeHtml(when)}</td>
+          <td class="num">${teams}</td>
+          <td class="num">${matches}</td>
+          <td class="num" style="white-space:nowrap;">
+            <button class="btn-primary" style="padding:5px 10px; font-size:0.78rem;" onclick="loadTournament(${t.id})">📂 Φόρτωση</button>
+            <button class="btn-danger" style="padding:5px 10px; font-size:0.78rem;" onclick="deleteTournament(${t.id})">🗑️</button>
+          </td></tr>`;
+      }).join('');
+    }
+
+    if (!lib.hall.length) {
+      hallBody.innerHTML = '<tr><td colspan="6" style="text-align:center; color:var(--muted); padding:24px;">Το Hall of Fame είναι κενό.</td></tr>';
+    } else {
+      const cell = p => p
+        ? `<div class="podium-cell">${renderTeamLogo({ name: p.name, logo: p.logo })}<span>${escapeHtml(p.name)}</span></div>`
+        : '—';
+      hallBody.innerHTML = [...lib.hall].sort((a, b) =>
+        String(b.year).localeCompare(String(a.year), undefined, { numeric: true }) || b.savedAt.localeCompare(a.savedAt)
+      ).map(h => `<tr>
+          <td style="font-weight:700; white-space:nowrap;">${escapeHtml(String(h.year))}</td>
+          <td>${escapeHtml(h.title)}</td>
+          <td><span class="medal">🏆</span>${cell(h.podium[0])}</td>
+          <td><span class="medal">🥈</span>${cell(h.podium[1])}</td>
+          <td><span class="medal">🥉</span>${cell(h.podium[2])}</td>
+          <td class="num"><button class="btn-danger" style="padding:5px 10px; font-size:0.78rem;" onclick="deleteHall(${h.id})">🗑️</button></td>
+        </tr>`).join('');
+    }
+  }
+
+  function exportLibrary() {
+    const lib = loadLib();
+    const blob = new Blob([JSON.stringify(lib, null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `BocaSport_Tournaments_HallOfFame_${new Date().toISOString().slice(0, 10)}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+
+  // Συγχώνευση βιβλιοθήκης: ίδιο όνομα (τουρνουά) ή ίδιος τίτλος+έτος (Hall of Fame) → κερδίζει το νεότερο
+  function mergeLibrary(lib, imp) {
+    const r = { tAdded: 0, tUpdated: 0, hAdded: 0, hUpdated: 0 };
+    (imp.tournaments || []).forEach(t => {
+      if (!t || !t.state || !t.name) return;
+      const i = lib.tournaments.findIndex(x => x.name === t.name);
+      if (i < 0) { lib.tournaments.push(t); r.tAdded++; }
+      else if (String(t.savedAt || '') > String(lib.tournaments[i].savedAt || '')) { t.id = lib.tournaments[i].id; lib.tournaments[i] = t; r.tUpdated++; }
+    });
+    (imp.hall || []).forEach(h => {
+      if (!h || !h.title) return;
+      const i = lib.hall.findIndex(x => x.title === h.title && String(x.year) === String(h.year));
+      if (i < 0) { lib.hall.push(h); r.hAdded++; }
+      else if (String(h.savedAt || '') > String(lib.hall[i].savedAt || '')) { h.id = lib.hall[i].id; lib.hall[i] = h; r.hUpdated++; }
+    });
+    return r;
+  }
+
+  function importLibrary(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      try {
+        const imp = JSON.parse(e.target.result);
+        if (!imp || !Array.isArray(imp.tournaments) || !Array.isArray(imp.hall)) {
+          alert("Μη έγκυρο αρχείο αντιγράφου.");
+          return;
+        }
+        const lib = loadLib();
+        const r = mergeLibrary(lib, imp);
+        if (saveLib(lib)) {
+          renderLibrary();
+          showToast(`Εισήχθησαν ${r.tAdded + r.hAdded} νέες, ενημερώθηκαν ${r.tUpdated + r.hUpdated}`);
+        }
+      } catch (err) {
+        alert("Σφάλμα κατά την ανάγνωση του αρχείου.");
+      }
+    };
+    reader.readAsText(file);
+    event.target.value = "";
+  }
+
+  // ---------- Ένα αρχείο για ΟΛΑ: boca.json ----------
+  function exportAll() {
+    const pack = {
+      app: 'boca',
+      version: 1,
+      exportedAt: new Date().toISOString(),
+      state: appState,
+      library: loadLib()
+    };
+    const blob = new Blob([JSON.stringify(pack)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'boca.json';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+    showToast("Αποθηκεύτηκε το boca.json — ανεβάστε το στο Drive");
+  }
+
+  function importAll(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      try {
+        const d = JSON.parse(e.target.result);
+        let state = null, libPart = null;
+        if (d && d.app === 'boca') { state = d.state; libPart = d.library; }
+        else if (d && Array.isArray(d.tournaments) && Array.isArray(d.hall)) { libPart = d; }      // παλιό αρχείο βιβλιοθήκης
+        else if (d && Array.isArray(d.teams) && Array.isArray(d.matches)) { state = d; }            // παλιό backup
+        else { alert("Μη έγκυρο αρχείο. Χρησιμοποιήστε το boca.json."); return; }
+
+        let msg = [];
+        if (libPart) {
+          const lib = loadLib();
+          const r = mergeLibrary(lib, libPart);
+          if (!saveLib(lib)) return;
+          msg.push(`τουρνουά: +${r.tAdded} νέα, ${r.tUpdated} ενημερώθηκαν · Hall of Fame: +${r.hAdded} νέα, ${r.hUpdated} ενημερώθηκαν`);
+        }
+        if (state && Array.isArray(state.teams) && Array.isArray(state.matches)) {
+          const name = (state.tournamentName || '').trim() || 'χωρίς τίτλο';
+          if (confirm(`Να φορτωθεί και το τρέχον τουρνουά του αρχείου («${name}», ${state.matches.length} αγώνες);\n\nOK = αντικατάσταση του τρέχοντος\nΆκυρο = κρατάω το τρέχον (μόνο τα αποθηκευμένα τουρνουά και το Hall of Fame συγχωνεύονται)`)) {
+            appState = state;
+            normalizeState();
+            saveState(false);
+            msg.push('τρέχον τουρνουά φορτώθηκε');
+          }
+        }
+        refreshAll();
+        showToast("Φορτώθηκε: " + msg.join(' | '));
+      } catch (err) {
+        alert("Σφάλμα κατά την ανάγνωση του αρχείου.");
+      }
+    };
+    reader.readAsText(file);
+    event.target.value = "";
+  }
+
+  init();
+</script>
+</body>
+</html>
